@@ -2,7 +2,6 @@ package com.simagis.x12
 
 import org.w3c.dom.Document
 import org.w3c.dom.Node
-import org.w3c.dom.NodeList
 import java.io.File
 import java.io.InputStream
 import java.io.OutputStream
@@ -19,6 +18,10 @@ import javax.xml.xpath.XPathFactory
  * Created by alexei.vylegzhanin@gmail.com on 1/24/2017.
  */
 fun main(args: Array<String>) {
+    if (args.isEmpty()) {
+        println("Usage: CleanX12XML <input-file-path> [output-file-path]")
+        return
+    }
     CleanX12XML(args).action()
 }
 
@@ -68,5 +71,9 @@ open class CleanX12XML(val args: Array<String>) {
 
     open fun openInputStream(): InputStream = File(args[0]).inputStream()
 
-    open fun openOutputStream(): OutputStream = File(args[1]).outputStream()
+    open fun openOutputStream(): OutputStream = when {
+        args.size == 1 -> File(args[0] + ".out.xml").outputStream()
+        args.size == 2 -> File(args[1]).outputStream()
+        else -> throw AssertionError()
+    }
 }
