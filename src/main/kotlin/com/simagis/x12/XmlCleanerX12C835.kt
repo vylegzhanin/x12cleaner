@@ -36,12 +36,12 @@ open class XmlCleanerX12C835(args: Array<String>) : XmlCleaner(args) {
 
         (NM103.evaluate(document, XPathConstants.NODE) as Node?)?.let { node ->
             val hashCode = node.textContent.hashCode()
-            node.textContent = "FirstName$hashCode"
+            node.textContent = "LastName$hashCode"
         }
 
         (NM104.evaluate(document, XPathConstants.NODE) as Node?)?.let { node ->
             val hashCode = node.textContent.hashCode()
-            node.textContent = "LastName$hashCode"
+            node.textContent = "FirstName$hashCode"
         }
     }
 }
