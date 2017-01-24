@@ -8,13 +8,19 @@ fun main(args: Array<String>) {
         return
     }
 
-    val inputPath = args[0]
+    val inputFile = File(args[0])
     val loopId = args[1]
     val outDir = File(args[2]).createDirectory()
     val tempDir = outDir.resolve(".tmp").createDirectory()
 
     try {
-        val process = ProcessBuilder("UnbundleX12.exe", inputPath, loopId, tempDir.absolutePath).start()
+        val process = ProcessBuilder("UnbundleX12.exe", inputFile.canonicalPath, loopId, tempDir.canonicalPath).apply {
+            directory(File(".").canonicalFile)
+            println("starting UnbundleX12.exe:")
+            println("${directory()}>" + command().joinToString(separator = " ", transform = {
+                if (it.contains(' ')) "\"$it\"" else it
+            }))
+        }.start()
         process.waitFor()
         if (process.exitValue() != 0) {
             println("Invalid UnbundleX12 exit code: ${process.exitValue()}")
@@ -23,6 +29,7 @@ fun main(args: Array<String>) {
         }
 
         tempDir.listFiles { pathname -> pathname?.isFile ?: false }.forEach {
+            println("processing $it")
             when (loopId) {
                 XmlCleanerX12C835.loopId -> {
                     XmlCleanerX12C835(arrayOf(it.absolutePath, outDir.resolve(it.name).absolutePath)).clean()
