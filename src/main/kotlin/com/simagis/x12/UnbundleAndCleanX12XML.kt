@@ -1,6 +1,7 @@
 package com.simagis.x12
 
 import java.io.*
+import java.util.*
 
 fun main(args: Array<String>) {
     if (args.size < 3) {
@@ -10,37 +11,41 @@ fun main(args: Array<String>) {
 
     val inputFile = File(args[0])
     val loopId = args[1]
-    val outDir = File(args[2]).createDirectory()
-    val tempDir = outDir.resolve(".tmp").createDirectory()
+    val tmpDir = File(".tmp").apply { mkdir() }
+    val tmpX12Dir = tmpDir.resolve("X12-${UUID.randomUUID()}").createDirectory()
+    val tmpXMLDir = tmpDir.resolve("XML-${UUID.randomUUID()}").createDirectory()
 
     try {
-        val process = ProcessBuilder("UnbundleX12.exe", inputFile.canonicalPath, loopId, tempDir.canonicalPath).apply {
-            directory(File(".").canonicalFile)
-            println("starting UnbundleX12.exe:")
-            println("${directory()}>" + command().joinToString(separator = " ", transform = {
-                if (it.contains(' ')) "\"$it\"" else it
-            }))
-        }.start()
-        process.waitFor()
-        if (process.exitValue() != 0) {
-            println("Invalid UnbundleX12 exit code: ${process.exitValue()}")
-            println("Program aborted")
-            return
-        }
+        ProcessBuilder("UnbundleX12.exe", inputFile.canonicalPath, loopId, tmpX12Dir.canonicalPath)
+                .start()
+                .waitForProcess()
 
-        tempDir.listFiles { pathname -> pathname?.isFile ?: false }.forEach {
-            println("processing $it")
+        val outDir = File(args[2]).apply { mkdir() }
+        tmpX12Dir.listFiles { pathname -> pathname?.isFile ?: false }.forEach { x12 ->
+            println("processing $x12")
+            val xml = tmpXMLDir.resolve("${x12.name}.xml")
+            ProcessBuilder("X12Parser.exe", x12.canonicalPath, xml.canonicalPath)
+                    .start()
+                    .waitForProcess()
+
+            val xmlOut = outDir.resolve(xml.name)
             when (loopId) {
-                XmlCleanerX12C835.loopId -> {
-                    XmlCleanerX12C835(arrayOf(it.absolutePath, outDir.resolve(it.name).absolutePath)).clean()
-                }
-                XmlCleanerX12C837.loopId -> {
-                    XmlCleanerX12C837(arrayOf(it.absolutePath, outDir.resolve(it.name).absolutePath)).clean()
-                }
+                XmlCleanerX12C835.loopId -> XmlCleanerX12C835(arrayOf(xml.canonicalPath, xmlOut.canonicalPath)).clean()
+                XmlCleanerX12C837.loopId -> XmlCleanerX12C837(arrayOf(xml.canonicalPath, xmlOut.canonicalPath)).clean()
             }
         }
     } finally {
-        tempDir.deleteRecursively()
+        tmpX12Dir.deleteRecursively()
+        tmpXMLDir.deleteRecursively()
+    }
+}
+
+private fun Process.waitForProcess() {
+    waitFor()
+    if (exitValue() != 0) {
+        println("Invalid exit code: ${exitValue()}")
+        println("Program aborted")
+        throw IOException("")
     }
 }
 
