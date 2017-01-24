@@ -1,0 +1,322 @@
+<?xml version="1.0"?>
+<Interchange segment-terminator="~" element-separator="*" sub-element-separator=":">
+  <ISA>
+    <!--Author Information Qualifier-->
+    <ISA01>00<!--No Authorization Information Present--></ISA01>
+    <!--Author Information-->
+    <ISA02>          </ISA02>
+    <!--Security Information Qualifer-->
+    <ISA03>00<!--No Security Information Present--></ISA03>
+    <!--Security Information-->
+    <ISA04>          </ISA04>
+    <!--Interchange ID Qualifier-->
+    <ISA05>ZZ<!--Mutually Defined--></ISA05>
+    <!--Interchange Sender ID-->
+    <ISA06>12202          </ISA06>
+    <!--Interchange ID Qualifier-->
+    <ISA07>29<!--Medicare Provider and Supplier Identification Number as assigned by Health Care Financing Administration (HCFA)--></ISA07>
+    <!--Interchange Receiver ID-->
+    <ISA08>1942121        </ISA08>
+    <!--Interchange Date-->
+    <ISA09>160524</ISA09>
+    <!--Interchange Time-->
+    <ISA10>2359</ISA10>
+    <!--Inter Control Standards Identifier-->
+    <ISA11>^</ISA11>
+    <!--Inter Control Version Number-->
+    <ISA12>00501</ISA12>
+    <!--Inter Control Number-->
+    <ISA13>614500238</ISA13>
+    <!--Acknowlegment Requested-->
+    <ISA14>0<!--No Acknowledgment Requested--></ISA14>
+    <!--Usage Indicator-->
+    <ISA15>P<!--Production Data--></ISA15>
+    <!--Component Element Separator-->
+    <ISA16>
+      <ISA1601 />
+      <ISA1602 />
+    </ISA16>
+  </ISA>
+  <FunctionGroup>
+    <GS>
+      <!--Functional Identifier Code-->
+      <GS01>HP<!--Health Care Claim Payment/Advice (835)--></GS01>
+      <!--Application Sender's Code-->
+      <GS02>12202</GS02>
+      <!--Application Receiver's Code-->
+      <GS03>1942121</GS03>
+      <!--Date-->
+      <GS04>20160524</GS04>
+      <!--Time-->
+      <GS05>2359</GS05>
+      <!--Group Control Number-->
+      <GS06>238</GS06>
+      <!--Responsible Agency Code-->
+      <GS07>X<!--Accredited Standards Committee X12--></GS07>
+      <!--Version / Release / Industry Identifier Code-->
+      <GS08>005010X221A1</GS08>
+    </GS>
+    <Transaction ControlNumber="000000001">
+      <ST>
+        <!--Transaction Set Identifier Code-->
+        <ST01>835<!--Health Care Claim Payment/Advice--></ST01>
+        <!--Transaction Set Control Number-->
+        <ST02>000000001</ST02>
+      </ST>
+      <BPR>
+        <!--Transaction Handling Code-->
+        <BPR01>I<!--Remittance Information Only--></BPR01>
+        <!--Monetary Amount-->
+        <BPR02>133.68</BPR02>
+        <!--Credit/Debit Flag Code-->
+        <BPR03>C<!--Credit--></BPR03>
+        <!--Payment Method Code-->
+        <BPR04>ACH<!--Automated Clearing House (ACH)--></BPR04>
+        <!--Payment Format Code-->
+        <BPR05>CCP<!--Cash Concentration/Disbursement plus Addenda (CCD+) (ACH)--></BPR05>
+        <!--(DFI) ID Number Qualifier-->
+        <BPR06>01<!--ABA Transit Routing Number Including Check Digits (9 digits)--></BPR06>
+        <!--(DFI) Identification Number-->
+        <BPR07>081517693</BPR07>
+        <!--Account Number Qualifier-->
+        <BPR08>DA<!--Demand Deposit--></BPR08>
+        <!--Account Number-->
+        <BPR09>152302017081</BPR09>
+        <!--Originating Company Identifier-->
+        <BPR10>1205296137</BPR10>
+        <BPR11 />
+        <!--(DFI) ID Number Qualifier-->
+        <BPR12>01<!--ABA Transit Routing Number Including Check Digits (9 digits)--></BPR12>
+        <!--(DFI) Identification Number-->
+        <BPR13>021000021</BPR13>
+        <!--Account Number Qualifier-->
+        <BPR14>DA<!--Demand Deposit--></BPR14>
+        <!--Account Number-->
+        <BPR15>486352318</BPR15>
+        <!--Date-->
+        <BPR16>20160525</BPR16>
+      </BPR>
+      <TRN>
+        <!--Trace Type Code-->
+        <TRN01>1<!--Current Transaction Trace Numbers--></TRN01>
+        <!--Reference Identification-->
+        <TRN02>884048980</TRN02>
+        <!--Originating Company Identifier-->
+        <TRN03>1205296137</TRN03>
+      </TRN>
+      <REF>
+        <!--Reference Identification Qualifier-->
+        <REF01>EV<!--Receiver Identification Number--></REF01>
+        <!--Reference Identification-->
+        <REF02>1942121</REF02>
+      </REF>
+      <DTM>
+        <!--Date/Time Qualifier-->
+        <DTM01>405<!--Production--></DTM01>
+        <!--Date-->
+        <DTM02>20160524</DTM02>
+      </DTM>
+      <Loop LoopId="1000A" Name="PAYER IDENTIFICATION">
+        <N1>
+          <!--Entity Identifier Code-->
+          <N101>PR<!--Payer--></N101>
+          <!--Name-->
+          <N102>NOVITAS SOLUTIONS, INC.</N102>
+        </N1>
+        <N3>
+          <!--Address Information-->
+          <N301>PO BOX 3399</N301>
+        </N3>
+        <N4>
+          <!--City Name-->
+          <N401>MECHANICSBURG</N401>
+          <!--State or Province Code-->
+          <N402>PA</N402>
+          <!--Postal Code-->
+          <N403>170551844</N403>
+        </N4>
+        <REF>
+          <!--Reference Identification Qualifier-->
+          <REF01>2U<!--Payer Identification Number--></REF01>
+          <!--Reference Identification-->
+          <REF02>12202</REF02>
+        </REF>
+        <PER>
+          <!--Contact Function Code-->
+          <PER01>CX<!--Payers Claim Office--></PER01>
+          <PER02 />
+          <!--Communication Number Qualifier-->
+          <PER03>TE<!--Telephone--></PER03>
+          <!--Communication Number-->
+          <PER04>8772358073</PER04>
+        </PER>
+        <PER>
+          <!--Contact Function Code-->
+          <PER01>BL<!--Technical Department--></PER01>
+          <!--Name-->
+          <PER02>NOVITAS SOLUTIONS, INC. EDI SERVICES</PER02>
+          <!--Communication Number Qualifier-->
+          <PER03>TE<!--Telephone--></PER03>
+          <!--Communication Number-->
+          <PER04>8772358073</PER04>
+          <!--Communication Number Qualifier-->
+          <PER05>EX<!--Telephone Extension--></PER05>
+          <!--Communication Number-->
+          <PER06>1</PER06>
+          <!--Communication Number Qualifier-->
+          <PER07>EM<!--Electronic Mail--></PER07>
+          <!--Communication Number-->
+          <PER08>WEBSITEEDI@NOVITAS-SOLUTIONS.COM</PER08>
+        </PER>
+      </Loop>
+      <Loop LoopId="1000B" Name="PAYEE IDENTFICATION">
+        <N1>
+          <!--Entity Identifier Code-->
+          <N101>PE<!--Payee--></N101>
+          <!--Name-->
+          <N102>BIO-REFERENCE LAB</N102>
+          <!--Identification Code Qualifier-->
+          <N103>XX<!--Centers for Medicare and Medicaid Services National Provider Identifier--></N103>
+          <!--Identification Code-->
+          <N104>1528331881</N104>
+        </N1>
+        <N3>
+          <!--Address Information-->
+          <N301>481 EDWARD H ROSS DR</N301>
+        </N3>
+        <N4>
+          <!--City Name-->
+          <N401>ELMWOOD PARK</N401>
+          <!--State or Province Code-->
+          <N402>NJ</N402>
+          <!--Postal Code-->
+          <N403>074073118</N403>
+        </N4>
+        <REF>
+          <!--Reference Identification Qualifier-->
+          <REF01>TJ<!--Federal Taxpayer's Identification Number--></REF01>
+          <!--Reference Identification-->
+          <REF02>222405059</REF02>
+        </REF>
+      </Loop>
+      <Loop LoopId="2000" Name="HEADER NUMBER">
+        <LX>
+          <!--Assigned Number-->
+          <LX01>1</LX01>
+        </LX>
+        <Loop LoopId="2100" Name="CLAIM PAYMENT INFORMATION">
+          <CLP>
+            <!--Claim Submitter's Identifier SCRAMBLE! -->
+            <CLP01>BOW500086160</CLP01>
+            <!--Claim Status Code-->
+            <CLP02>22<!--Reversal of Previous Payment--></CLP02>
+            <!--Monetary Amount-->
+            <CLP03>-300</CLP03>
+            <!--Monetary Amount-->
+            <CLP04>0</CLP04>
+            <CLP05 />
+            <!--Claim Filing Indicator Code-->
+            <CLP06>MB<!--Medicare Part B--></CLP06>
+            <!--Reference Identification-->
+            <CLP07>1916119306020</CLP07>
+            <!--Facility Code Value-->
+            <CLP08>81</CLP08>
+            <!--Claim Frequency Type Code-->
+            <CLP09>1</CLP09>
+          </CLP>
+          <NM1>
+            <!--Entity Identifier Code REMOVE! -->
+            <NM101>QC<!--Patient REPLACE! --></NM101>
+            <!--Entity Type Qualifier-->
+            <NM102>1<!--Person--></NM102>
+            <!--Name Last or Organization Name-->
+            <NM103>FIRSNAME</NM103>
+            <!--Name First-->
+            <NM104>LASTNAME</NM104>
+            <NM105 />
+            <NM106 />
+            <NM107 />
+            <!--Identification Code Qualifier-->
+            <NM108>HN<!--Health Insurance Claim (HIC) Number--></NM108>
+            <!--Identification Code-->
+            <NM109>579465187D</NM109>
+          </NM1>
+          <MOA>
+            <MOA01 />
+            <MOA02 />
+            <!--Reference Identification-->
+            <MOA03>MA01</MOA03>
+          </MOA>
+          <DTM>
+            <!--Date/Time Qualifier-->
+            <DTM01>050<!--Received--></DTM01>
+            <!--Date-->
+            <DTM02>20160428</DTM02>
+          </DTM>
+          <Loop LoopId="2110" Name="SERVICE PAYMENT INFORMATION">
+            <SVC>
+              <!--Composite Medical Procedure Identifier-->
+              <SVC01>
+                <SVC0101>HC</SVC0101>
+                <SVC0102>88305</SVC0102>
+              </SVC01>
+              <!--Monetary Amount-->
+              <SVC02>-300</SVC02>
+              <!--Monetary Amount-->
+              <SVC03>0</SVC03>
+              <SVC04 />
+              <SVC05 />
+              <SVC06 />
+              <!--Quantity-->
+              <SVC07>1</SVC07>
+            </SVC>
+            <DTM>
+              <!--Date/Time Qualifier-->
+              <DTM01>472<!--Service--></DTM01>
+              <!--Date-->
+              <DTM02>20160108</DTM02>
+            </DTM>
+            <CAS>
+              <!--Claim Adjustment Group Code-->
+              <CAS01>OA<!--Other adjustments--></CAS01>
+              <!--Claim Adjustment Reason Code-->
+              <CAS02>18</CAS02>
+              <!--Monetary Amount-->
+              <CAS03>-300</CAS03>
+            </CAS>
+            <REF>
+              <!--Reference Identification Qualifier-->
+              <REF01>LU<!--Location Number--></REF01>
+              <!--Reference Identification-->
+              <REF02>81</REF02>
+            </REF>
+            <REF>
+              <!--Reference Identification Qualifier-->
+              <REF01>6R<!--Provider Control Number--></REF01>
+              <!--Reference Identification-->
+              <REF02>20160428500086169001</REF02>
+            </REF>
+            <LQ>
+              <!--Code List Qualifier Code-->
+              <LQ01>HE<!--Remittance Advice Remark Code--></LQ01>
+              <!--Industry Code-->
+              <LQ02>N522</LQ02>
+            </LQ>
+          </Loop>
+        </Loop>
+      </Loop>
+    </Transaction>
+    <GE>
+      <!--Number of Transaction Sets Included-->
+      <GE01>1</GE01>
+      <!--Group Control Number-->
+      <GE02>238</GE02>
+    </GE>
+  </FunctionGroup>
+  <IEA>
+    <!--Number of Included Functional Groups-->
+    <IEA01>1</IEA01>
+    <!--Interchange Control Number-->
+    <IEA02>614500238</IEA02>
+  </IEA>
+</Interchange>
