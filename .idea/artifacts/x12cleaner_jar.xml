@@ -1,0 +1,12 @@
+<component name="ArtifactManager">
+  <artifact name="x12cleaner:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/x12cleaner_jar</output-path>
+    <root id="root">
+      <element id="archive" name="x12cleaner.jar">
+        <element id="module-output" name="x12cleaner" />
+      </element>
+      <element id="library" level="project" name="Maven: org.jetbrains.kotlin:kotlin-stdlib:1.0.6" />
+      <element id="library" level="project" name="Maven: org.jetbrains.kotlin:kotlin-runtime:1.0.6" />
+    </root>
+  </artifact>
+</component>
