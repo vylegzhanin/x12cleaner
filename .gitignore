@@ -11,6 +11,9 @@ test-classes/
 #idea/maven output
 target/
 
+#test output
+/temp/
+
 #logs
 *.log
 
